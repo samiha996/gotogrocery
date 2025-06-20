@@ -6,5 +6,8 @@
     'category': 'Package',
     'version': '1.0',
     'depends': ['product', 'purchase', 'sale'],
+    'data':[
+        'views/purchase_order_view.xml'
+    ],
 }
 
