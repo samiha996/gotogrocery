@@ -5,6 +5,14 @@ from odoo import models, fields, api
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
+    new_qty = fields.Float(string="New Qty")
+
+    @api.onchange('new_qty')
+    def _onchange_new_qty(self):
+        for line in self:
+            if line.new_qty:
+                line.product_qty += line.new_qty
+
 
     @api.depends('product_qty', 'product_uom', 'company_id', 'product_packaging_id')
     def _compute_price_unit_and_date_planned_and_name(self):
