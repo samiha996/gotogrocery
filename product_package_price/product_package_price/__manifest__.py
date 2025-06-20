@@ -6,5 +6,6 @@
     'category': 'Package',
     'version': '1.0',
     'depends': ['product', 'purchase', 'sale'],
+    'installable': True,
 }
 
