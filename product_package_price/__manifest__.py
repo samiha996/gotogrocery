@@ -7,7 +7,8 @@
     'version': '1.0',
     'depends': ['product', 'purchase', 'sale'],
     'data':[
-        'views/purchase_order_view.xml'
+        'views/purchase_order_view.xml',
+        'views/sale_order_view.xml',
     ],
 }
 
