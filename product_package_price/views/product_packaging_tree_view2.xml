@@ -1,0 +1,12 @@
+<odoo>
+  <record id="product_packaging_tree_view2_inherit_package_price" model="ir.ui.view">
+    <field name="name">product.packaging.tree.view2.inherit.package.price</field>
+    <field name="model">product.packaging</field>
+    <field name="inherit_id" ref="product.product_packaging_tree_view2"/>
+    <field name="arch" type="xml">
+      <xpath expr="//tree" position="inside">
+        <field name="package_price" string="Package Purchase Price"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
