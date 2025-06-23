@@ -1,0 +1,35 @@
+<odoo>
+  <record id="product_product_form_inherit_packaging_general_info" model="ir.ui.view">
+    <field name="name">product.product.form.inherit.packaging.general.info</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+
+      
+
+    
+      <xpath expr="//page[@name='general_information']" position="inside">
+        <group name="purchase">
+        <field name="seller_ids" context="{'default_product_tmpl_id': id, 'product_template_invisible_variant': True, 'tree_view_ref':'purchase.product_supplierinfo_tree_view2'}" nolabel="1" invisible="product_variant_count &gt; 1" readonly="product_variant_count &gt; 1"/>
+        <field name="variant_seller_ids" context="{'model': 'product.template', 'active_id': id, 'tree_view_ref':'purchase.product_supplierinfo_tree_view2'}" nolabel="1" invisible="product_variant_count &lt;= 1" readonly="product_variant_count &lt;= 1"/>
+            <group string="Vendor Bills">
+                    <group>
+                    
+                        <field name="supplier_taxes_id" string="Vendor Txes" colspan="2" widget="many2many_tags" readonly="purchase_ok == 0" context="{'default_type_tax_use':'purchase'}"/>
+                    
+                        <field name="purchase_method" widget="radio"/>
+                    </group>
+            </group>
+        </group>
+        
+        <group name="packaging" string="Packaging"
+                                colspan="4"
+                                invisible="(type not in ['product', 'consu'] or product_variant_count &gt; 1) and not is_product_variant"
+                                groups="product.group_stock_packaging">
+                                <field colspan="2" name="packaging_ids" nolabel="1" context="{'tree_view_ref':'product.product_packaging_tree_view2', 'default_company_id': company_id}"/>
+            </group>
+      </xpath>
+
+    </field>
+  </record>
+</odoo>
