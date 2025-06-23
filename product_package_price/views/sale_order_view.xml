@@ -1,0 +1,27 @@
+<odoo>
+    <record id="sale_order_form_view_inherit_qty_label" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.qty.label</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_packaging_qty']" position="replace">
+                <!-- Do not re-add anything here to remove it -->
+            </xpath>
+             <!-- Move product_packaging_qty before product_qty -->
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
+                <field name="product_packaging_qty" string="Boxes"/>
+            </xpath>
+
+            <!-- Insert new_qty before product_qty -->
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
+                <field name="new_qty" string="Pieces"/>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace">
+                <field name="product_uom_qty" string="Total pieces"/>
+            </xpath>
+           
+           
+        </field>
+    </record>
+</odoo>
