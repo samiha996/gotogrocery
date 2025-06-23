@@ -8,7 +8,9 @@
     'depends': ['product', 'purchase', 'sale'],
     'data':[
         'views/purchase_order_view.xml',
+        'views/product_template.xml',
         'views/sale_order_view.xml',
+        
     ],
 }
 
