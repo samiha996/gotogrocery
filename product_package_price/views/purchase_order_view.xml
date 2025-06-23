@@ -4,7 +4,9 @@
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
-            
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_packaging_qty']" position="replace">
+                
+            </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="before">
                 <field name="product_packaging_qty" string="Boxes"/>
             </xpath>
