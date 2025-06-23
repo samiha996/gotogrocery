@@ -6,6 +6,24 @@ class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
     new_qty = fields.Float(string="New Qty")
+    package_price = fields.Float(
+        string="Package Price",
+        compute="_compute_package_price",
+        store=True,
+        readonly=False  # optional if you want to allow manual override
+    )
+
+    
+    @api.depends('product_packaging_id')
+    def _compute_package_price(self):
+        for line in self:
+            line.package_price = line.product_packaging_id.package_price or 0.0
+
+    @api.onchange('package_price', 'product_packaging_qty')
+    def _onchange_package_price_or_qty(self):
+        for line in self:
+            if line.product_packaging_qty:
+                line.price_unit = line.package_price / line.product_qty
 
     @api.onchange('new_qty')
     def _onchange_new_qty(self):
