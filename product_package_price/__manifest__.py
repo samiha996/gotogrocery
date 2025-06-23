@@ -9,6 +9,7 @@
     'data':[
         'views/purchase_order_view.xml',
         'views/product_template.xml',
+        'views/product_product.xml',
         'views/sale_order_view.xml',
         'views/product_packaging_tree_view2.xml',
     ],
