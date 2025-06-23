@@ -19,11 +19,36 @@ class PurchaseOrderLine(models.Model):
         for line in self:
             line.package_price = line.product_packaging_id.package_price or 0.0
 
-    @api.onchange('package_price', 'product_packaging_qty')
-    def _onchange_package_price_or_qty(self):
+    box_unit_price = fields.Float(string="Box Unit Price") 
+
+    @api.onchange('product_packaging_id')
+    def _onchange_packaging_id(self):
         for line in self:
-            if line.product_packaging_qty:
-                line.price_unit = line.package_price / line.product_qty
+            # Reset box price if packaging changes
+            if line.product_packaging_id:
+                line.package_price = line.product_packaging_id.package_price or 0.0
+            line._recompute_prices()
+
+    @api.onchange('product_packaging_qty')
+    def _onchange_packaging_qty(self):
+        for line in self:
+            line._recompute_prices()
+
+    @api.onchange('package_price')
+    def _onchange_package_price(self):
+        for line in self:
+            line._recompute_prices()
+
+    def _recompute_prices(self):
+        for line in self:
+            pieces_per_box = line.product_packaging_id.qty or 1.0
+            boxes = line.product_packaging_qty or 1.0
+
+            # Total = price per box × number of boxes
+            line.price_subtotal = line.package_price * boxes
+
+            # Unit price = price per box ÷ pieces per box
+            line.price_unit = line.package_price / pieces_per_box
 
     @api.onchange('new_qty')
     def _onchange_new_qty(self):
