@@ -20,6 +20,9 @@
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace">
                 <field name="product_uom_qty" string="Total pieces"/>
             </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+                <field name="package_price"/>
+            </xpath>
            
            
         </field>
