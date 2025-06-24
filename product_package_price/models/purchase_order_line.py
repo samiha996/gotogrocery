@@ -1,54 +1,43 @@
-# -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
 
 class PurchaseOrderLine(models.Model):
     _inherit = 'purchase.order.line'
 
     new_qty = fields.Float(string="New Qty")
-    package_price = fields.Float(
-        string="Package Price",
-        compute="_compute_package_price",
-        store=True,
-        readonly=False  # optional if you want to allow manual override
-    )
+    package_price = fields.Float(string="Package Price")
 
-    
-    @api.depends('product_packaging_id')
-    def _compute_package_price(self):
-        for line in self:
-            line.package_price = line.product_packaging_id.package_price or 0.0
-
-    box_unit_price = fields.Float(string="Box Unit Price") 
+    _package_price_initialized = fields.Boolean(string="Box Price Initialized", default=False)
 
     @api.onchange('product_packaging_id')
-    def _onchange_packaging_id(self):
+    def _onchange_product_packaging_id(self):
         for line in self:
-            # Reset box price if packaging changes
             if line.product_packaging_id:
-                line.package_price = line.product_packaging_id.package_price or 0.0
-            line._recompute_prices()
+                # Set only the first time
+                if not line._package_price_initialized:
+                    line.package_price = line.product_packaging_id.package_price or 0.0
+                    line._package_price_initialized = True
+
+                line.product_qty = line.product_packaging_id.qty or 1.0
+
+            line._recompute_custom_prices()
 
     @api.onchange('product_packaging_qty')
     def _onchange_packaging_qty(self):
         for line in self:
-            line._recompute_prices()
+            line._recompute_custom_prices()
 
     @api.onchange('package_price')
     def _onchange_package_price(self):
         for line in self:
-            line._recompute_prices()
+            line._recompute_custom_prices()
 
-    def _recompute_prices(self):
+    def _recompute_custom_prices(self):
         for line in self:
             pieces_per_box = line.product_packaging_id.qty or 1.0
             boxes = line.product_packaging_qty or 1.0
 
-            # Total = price per box × number of boxes
-            line.price_subtotal = line.package_price * boxes
-
-            # Unit price = price per box ÷ pieces per box
             line.price_unit = line.package_price / pieces_per_box
+            line.price_subtotal = line.package_price * boxes
 
     @api.onchange('new_qty')
     def _onchange_new_qty(self):
@@ -56,18 +45,11 @@ class PurchaseOrderLine(models.Model):
             if line.new_qty:
                 line.product_qty += line.new_qty
 
-
-    @api.depends('product_qty', 'product_uom', 'company_id', 'product_packaging_id')
-    def _compute_price_unit_and_date_planned_and_name(self):
-        super()._compute_price_unit_and_date_planned_and_name()
+    @api.onchange('product_id')
+    def _onchange_product_id_set_first_packaging(self):
         for line in self:
-            if line.product_packaging_id and line.product_packaging_id.unit_price:
-                line.price_unit = line.product_packaging_id.unit_price
-            else:
-                line.price_unit = line.price_unit
-
-    @api.onchange('product_packaging_id')
-    def _onchange_product_packaging_id(self):
-        if self.product_packaging_id and self.product_packaging_id.qty:
-            self.product_qty = self.product_packaging_id.qty
-
+            if line.product_id and not line.product_packaging_id:
+                if line.product_id.packaging_ids:
+                    # Set the first packaging as default
+                    line.product_packaging_id = line.product_id.packaging_ids[0]
+                    
