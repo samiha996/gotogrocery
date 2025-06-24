@@ -1,0 +1,7 @@
+<odoo>
+
+    <menuitem id="menu_custom_products_root"
+                name="Products"
+                sequence="15" />
+
+</odoo>

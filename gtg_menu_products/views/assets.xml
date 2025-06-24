@@ -1,0 +1,7 @@
+<odoo>
+  <template id="assets_backend" inherit_id="web.assets_backend" name="Custom Product Image Popup">
+    <xpath expr="." position="inside">
+      <script type="module" src="/gtg_menu_products/static/src/js/product_image_popup.js"/>
+    </xpath>
+  </template>
+</odoo>
