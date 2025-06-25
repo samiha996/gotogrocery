@@ -7,6 +7,7 @@ class SaleOrderLine(models.Model):
     new_qty = fields.Float(string="New Qty")
     package_price = fields.Float(string="Package Price")
     _package_price_initialized = fields.Boolean(default=False)
+    new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
     
 
