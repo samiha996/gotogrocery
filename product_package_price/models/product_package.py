@@ -8,6 +8,9 @@ class ProductPackage(models.Model):
     package_price = fields.Float(
         digits='Product Price'
     )
+    package_sale_price = fields.Float(
+        digits='Product Price', string="SO Box Price",
+    )
     unit_price = fields.Float(
         digits='Product Price',
         compute='_compute_unit_price',
