@@ -5,7 +5,8 @@
     <field name="inherit_id" ref="product.product_packaging_tree_view2"/>
     <field name="arch" type="xml">
       <xpath expr="//tree" position="inside">
-        <field name="package_price" string="Package Purchase Price"/>
+        <field name="package_price" string="PO Package Price"/>
+        <field name="package_sale_price" string="SO Pacakge Price"/>
       </xpath>
     </field>
   </record>
