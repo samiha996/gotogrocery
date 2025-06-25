@@ -18,7 +18,7 @@ class SaleOrderLine(models.Model):
         for line in self:
             if line.product_packaging_id:
                 if not line._package_price_initialized:
-                    line.package_price = line.product_packaging_id.package_price or 0.0
+                    line.package_price = line.product_packaging_id.package_sale_price or 0.0
                     line._package_price_initialized = True
             line._update_qty_and_prices()
 
