@@ -10,12 +10,7 @@
         <field name="res_model">product.template</field>
         <field name="view_mode">kanban</field>
         <field name="view_id" ref="product.product_template_kanban_view"/>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No products found.
-            </p>
-        </field>
-        <field name="context">{'create': False}</field>
+        <field name="context">{'custom_product_popup_enabled': True}</field>
     </record>
 
     <!-- Menu Item -->
