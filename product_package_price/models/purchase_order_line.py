@@ -5,6 +5,8 @@ class PurchaseOrderLine(models.Model):
 
     new_qty = fields.Float(string="New Qty")
     package_price = fields.Float(string="Package Price")
+    new_qty_last = fields.Float(string="Last Qty", default=0.0)
+    delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
 
     _package_price_initialized = fields.Boolean(string="Box Price Initialized", default=False)
 
@@ -39,11 +41,29 @@ class PurchaseOrderLine(models.Model):
             line.price_unit = line.package_price / pieces_per_box
             line.price_subtotal = line.package_price * boxes
 
+    @api.depends('new_qty', 'new_qty_last')
+    def _compute_delta_qty(self):
+        for line in self:
+            line.delta_qty = line.new_qty - line.new_qty_last
+
     @api.onchange('new_qty')
     def _onchange_new_qty(self):
         for line in self:
-            if line.new_qty:
-                line.product_qty += line.new_qty
+            delta = line.new_qty - line.new_qty_last
+            print(f"[PO] New Qty: {line.new_qty}, Last Qty: {line.new_qty_last}, Delta: {delta}")
+            line.product_qty += delta
+
+    def write(self, vals):
+        res = super().write(vals)
+        for line in self:
+            if 'new_qty' in vals:
+                line.new_qty_last = line.new_qty
+        return res
+
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['new_qty_last'] = vals.get('new_qty', 0.0)
+        return super().create(vals_list)
 
     @api.onchange('product_id')
     def _onchange_product_id_set_first_packaging(self):
