@@ -7,6 +7,8 @@ class SaleOrderLine(models.Model):
     new_qty = fields.Float(string="New Qty")
     package_price = fields.Float(string="Package Price")
     _package_price_initialized = fields.Boolean(default=False)
+    delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
+    
 
     @api.onchange('product_id')
     def _onchange_product_id_set_first_packaging(self):
@@ -33,11 +35,29 @@ class SaleOrderLine(models.Model):
         for line in self:
             line._update_qty_and_prices()
 
+    @api.depends('new_qty', 'new_qty_last')
+    def _compute_delta_qty(self):
+        for line in self:
+            line.delta_qty = line.new_qty - line.new_qty_last
+
     @api.onchange('new_qty')
     def _onchange_new_qty(self):
         for line in self:
-            if line.new_qty:
-                line.product_uom_qty += line.new_qty
+            delta = line.new_qty - line.new_qty_last
+            print(f"New Qty: {line.new_qty}, Last Qty: {line.new_qty_last}, Delta: {delta}")
+            line.product_uom_qty += delta
+
+    def write(self, vals):
+        res = super().write(vals)
+        for line in self:
+            if 'new_qty' in vals:
+                line.new_qty_last = line.new_qty  # Ensure it's saved
+        return res
+
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['new_qty_last'] = vals.get('new_qty', 0.0)
+        return super().create(vals_list)
 
     def _update_qty_and_prices(self):
         for line in self:
