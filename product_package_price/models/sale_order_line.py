@@ -47,3 +47,20 @@ class SaleOrderLine(models.Model):
            
             line.product_uom_qty = total_pieces
             line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
+
+    @api.onchange('product_id', 'product_uom_qty')
+    def _onchange_product_id_check_stock(self):
+        if self.product_id and self.product_uom_qty:
+            qty_available = self.product_id.qty_available
+            if self.product_uom_qty > qty_available:
+                raise UserError(f"The selected product '{self.product_id.display_name}' is out of stock. Only {qty_available} unit(s) available.")
+
+    @api.constrains('product_id', 'product_uom_qty')
+    def _check_product_stock(self):
+        for line in self:
+            if line.product_id.type == 'product':  # Only check stockable products
+                qty_available = line.product_id.qty_available
+                if line.product_uom_qty > qty_available:
+                    raise ValidationError(
+                        f"Cannot confirm order. Product '{line.product_id.display_name}' has only {qty_available} unit(s) in stock."
+                    )
