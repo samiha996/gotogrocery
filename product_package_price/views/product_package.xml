@@ -1,0 +1,16 @@
+<odoo>
+    <record id="product_packaging_tree_view" model="ir.ui.view">
+        <field name="name">product.packaging.tree.view</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field  name="package_price" string="PO Box Price"/>
+                <field  name="package_sale_price" string="SO Box Price"/>
+                <!-- <field name="unit_price"/> -->
+            </xpath>
+        </field>
+
+    </record>
+
+</odoo>
