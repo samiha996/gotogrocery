@@ -12,10 +12,18 @@ patch(KanbanRecord.prototype, {
     },
 
     async onGlobalClick(ev) {
+        const context = this.props.record?.context || this.props.context || {};
+        const isCustomPopupEnabled = context.custom_product_popup_enabled;
+
+        if (!isCustomPopupEnabled) {
+            // 👇 fallback to default click behavior
+            return super.onGlobalClick(ev);
+        }
+
         const card = ev.currentTarget;
 
         if (card) {
-            this.dialog.closeAll();  // remove any previous popup
+            this.dialog.closeAll();  // ✅ only one popup at a time
             this.dialog.add(ProductImageDialog, { node: card.cloneNode(true) }, {
                 title: false,
                 dialogClass: "bg-transparent border-0 shadow-none p-0",
