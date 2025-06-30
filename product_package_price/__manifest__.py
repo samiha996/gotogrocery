@@ -7,6 +7,7 @@
     'version': '1.0',
     'depends': ['product', 'purchase', 'sale'],
     'data':[
+        'security/ir.model.access.csv',
         'views/product_package.xml',
         'views/purchase_order_view.xml',
         'views/product_template.xml',
