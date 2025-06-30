@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_picking_form_inherit_packaging" model="ir.ui.view">
+        <field name="name">view.picking.form.inherit.packaging</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_ids_without_package']/tree/field[@name='product_uom_qty']" position="before">
+                
+                <field name="package_qty" string="Boxes"/>
+                <field name="pieces_qty" string="Pieces"/>
+                
+            </xpath>
+        </field>
+    </record>
+</odoo>
