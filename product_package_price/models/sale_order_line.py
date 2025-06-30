@@ -9,6 +9,22 @@ class SaleOrderLine(models.Model):
     _package_price_initialized = fields.Boolean(default=False)
     new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
+
+    def _prepare_invoice_line(self, **optional_values):
+        res = super()._prepare_invoice_line(**optional_values)
+        res['package_qty'] = self.product_packaging_qty
+        res['pieces_qty'] = self.new_qty or 0.0
+        return res
+    
+    def _prepare_procurement_values(self, group_id=False):
+        print("..................Preparing procurement values with package_qty:", self.product_packaging_qty)
+        values = super()._prepare_procurement_values(group_id)
+        self.ensure_one()
+        values.update({
+            'package_qty': self.product_packaging_qty,
+            'pieces_qty': self.new_qty or 0.0
+        })
+        return values
     
 
     @api.onchange('product_id')
