@@ -10,6 +10,23 @@ class PurchaseOrderLine(models.Model):
 
     _package_price_initialized = fields.Boolean(string="Box Price Initialized", default=False)
 
+    def _prepare_account_move_line(self, move=False):
+        res = super()._prepare_account_move_line(move)
+        res['package_qty'] = self.product_packaging_qty
+        res['pieces_qty'] = self.new_qty or 0.0
+        return res
+    
+    def _prepare_stock_moves(self, picking):
+        moves = super()._prepare_stock_moves(picking)
+        for move in moves:
+            move.update({
+                'package_qty': self.product_packaging_qty,
+                'pieces_qty': self.new_qty or 0.0
+            })
+        return moves
+
+    
+
     @api.onchange('product_packaging_id')
     def _onchange_product_packaging_id(self):
         for line in self:
