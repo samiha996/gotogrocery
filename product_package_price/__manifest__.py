@@ -15,6 +15,8 @@
         'views/purchase_order_view.xml',
         'views/sale_order_view.xml',
         'views/product_packaging_tree_view2.xml',
+        'views/stock_move.xml',
+        'views/account_move_line.xml',
         'wizard/purchase_order_discount.xml',
     ],
 }
