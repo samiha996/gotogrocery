@@ -3,6 +3,9 @@ from odoo import models, fields, api, _
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
+    representative_name = fields.Char(string="Representative Name")
+    customer_number = fields.Char(related='partner_id.customer_number', string="Customer Number", readonly=True, store=True)
+
     def action_open_discount_wizard(self):
         self.ensure_one()
         return {
