@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_purchase_order_form_inherit_cancel" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.cancel.dropdown</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='button_cancel']" position="replace">
+                <button name="open_cancel_wizard" type="object" string="Cancel" class="oe_highlight"
+                        invisible="state == 'cancel'"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group>
+                    <field name="cancel_associated_records"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_purchase_order_tree_no_bulk_actions" model="ir.ui.view">
+        <field name="name">purchase.order.tree.no.bulk.actions</field>
+        <field name="model">purchase.order</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase Orders" create="false" edit="false">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_order"/>
+                <field name="state"/>
+                <field name="amount_total"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

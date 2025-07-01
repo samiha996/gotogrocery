@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_cancel_purchase_dashboard_search" model="ir.ui.view">
+        <field name="name">cancel.purchase.dashboard.search</field>
+        <field name="model">cancel.purchase.dashboard</field>
+        <field name="arch" type="xml">
+            <search string="Search Purchase Dashboard">
+                <!-- Expose time_range, date_start, date_end in advanced search -->
+                <field name="time_range"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+
+                <!-- Predefined "Filters" that set context to define time_range -->
+                <filter string="All Time" name="all_time" context="{'time_range': 'all_time'}"/>
+                <filter string="Today" name="today" context="{'time_range': 'today'}"/>
+                <filter string="This Week" name="this_week" context="{'time_range': 'this_week'}"/>
+                <filter string="This Month" name="this_month" context="{'time_range': 'this_month'}"/>
+                <filter string="This Quarter" name="this_quarter" context="{'time_range': 'this_quarter'}"/>
+                <filter string="This Year" name="this_year" context="{'time_range': 'this_year'}"/>
+                        <!-- Custom Date Range button -->
+                <!-- <filter string="Custom" name="action_open_custom_range_wizard" context="{'time_range': 'custom'}"/> -->
+            </search>
+        </field>
+    </record>
+    <!-- Link the search view to the dashboard action -->
+    <record id="action_cancel_purchase_dashboard" model="ir.actions.act_window">
+        <field name="name">Cancel Purchase Dashboard</field>
+        <field name="res_model">cancel.purchase.dashboard</field>
+        <field name="view_mode">kanban</field>
+        <field name="search_view_id" ref="view_cancel_purchase_dashboard_search"/>
+    </record>
+</odoo>

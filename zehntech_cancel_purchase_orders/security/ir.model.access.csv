@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_purchase_order_cancel_wizard_user,purchase.order.cancel.wizard.user,model_purchase_order_cancel_wizard,base.group_user,1,0,1,0
+access_purchase_order_cancel_wizard_admin,purchase.order.cancel.wizard.admin,model_purchase_order_cancel_wizard,base.group_system,1,1,1,1
+access_purchase_order_user,purchase.order.user,model_purchase_order,base.group_user,1,1,1,0
+access_purchase_order_admin,purchase.order.admin,model_purchase_order,base.group_system,1,1,1,1
+access_cancel_purchase_dashboard_user,cancel.purchase.dashboard.user,model_cancel_purchase_dashboard,base.group_user,0,0,0,0
+access_cancel_purchase_dashboard_admin,cancel.purchase.dashboard.admin,model_cancel_purchase_dashboard,base.group_system,1,1,1,1
+access_purchase_order_confirm_delete_wizard,purchase.order.confirm.delete.wizard,model_purchase_order_confirm_delete_wizard,base.group_user,1,1,1,0
+access_cancel_purchase_main_admin,cancel.purchase.main.admin,model_cancel_purchase_main,base.group_system,1,1,1,1
+access_cancel_purchase_main_user,cancel.purchase.main.user,model_cancel_purchase_main,base.group_user,1,0,0,0
+access_cancel_purchase_data_history_user,cancel.purchase.data.history.user,model_cancel_purchase_data_history,base.group_user,0,1,1,0
+access_cancel_purchase_data_history_admin,cancel.purchase.data.history.admin,model_cancel_purchase_data_history,base.group_system,1,1,1,1
+access_res_config_settings_admin,res.config.settings.admin,model_res_config_settings,base.group_system,1,1,1,1
+access_cancel_purchase_date_range_wizard,cancel.purchase.date.range.wizard,model_cancel_purchase_date_range_wizard,base.group_user,1,1,1,1

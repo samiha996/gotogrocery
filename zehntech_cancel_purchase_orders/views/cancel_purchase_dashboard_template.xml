@@ -1,0 +1,13 @@
+<odoo>
+    <!-- Dashboard Card Template -->
+    <template id="CancelPurchaseDashboardCardTemplate" name="Cancel Purchase Dashboard Card">
+        <div class="o_dashboard_card">
+            <div class="o_dashboard_card_header">
+                <h4>Cancel Purchase Overview</h4>
+            </div>
+            <div class="o_dashboard_card_body">
+                <p>Click the actions in the dashboard to view detailed records for each type of cancellation.</p>
+            </div>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,22 @@
+<odoo>
+    <menuitem id="menu_cancel_purchase_root" name="Cancel Purchase Orders" sequence="30"/>
+
+    <record id="action_cancel_purchase_dashboard" model="ir.actions.act_window">
+        <field name="name">Cancel Purchase Dashboard</field>
+        <field name="res_model">cancel.purchase.dashboard</field>
+        <field name="view_mode">kanban</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem id="menu_cancel_purchase_dashboard"
+              name="Dashboard"
+              parent="menu_cancel_purchase_root"
+              action="action_cancel_purchase_dashboard"
+              sequence="10"/>
+
+    <menuitem id="menu_cancel_purchase_history"
+              name="Data History"
+              parent="menu_cancel_purchase_root"
+              action="action_cancel_purchase_data_history"
+              sequence="20"/>
+</odoo>

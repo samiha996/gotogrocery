@@ -1,0 +1,944 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zehntech_cancel_purchase_orders
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-17 09:18+0000\n"
+"PO-Revision-Date: 2025-04-17 09:18+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>CANCELLED</span>"
+msgstr "<span>キャンセル</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>Custom Date Range</span>"
+msgstr "<span>カスタムの日付範囲</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>PURCHASE ORDER</span>"
+msgstr "<span>注文書</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>RFQ</span>"
+msgstr "<span>見積り依頼</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__action_type
+msgid "Action Type"
+msgstr "アクションの種類"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__active
+msgid "Active"
+msgstr "アクティブ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__all_time
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "All Time"
+msgstr "オールタイム"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "Already in Draft"
+msgstr "すでにドラフト中"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Apply"
+msgstr "適用する"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "Are you sure you want to permanently delete this Purchase Order?"
+msgstr "この発注書を完全に削除してもよろしいですか?"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__associated_data
+msgid "Associated Data"
+msgstr "関連データ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bill %s is posted/paid and was not canceled."
+msgstr "請求書 %s は投稿/支払い済みで、キャンセルされていません。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bill %s is posted/paid and was not reset to draft."
+msgstr "請求書 %s は投稿/支払い済みで、下書きにリセットされていません。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_only
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_only_purchase
+msgid "Bulk Cancel Only"
+msgstr "一括キャンセルのみ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_and_delete
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_and_delete_purchase
+msgid "Bulk Cancel and Delete"
+msgstr "一括キャンセルと削除"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_reset_to_draft
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_reset_to_draft_purchase
+msgid "Bulk Set to RFQ"
+msgstr "見積依頼に一括設定"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bulk cancel actions are not allowed from the Dashboard."
+msgstr "ダッシュボードからの一括キャンセル操作は許可されていません。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__cancel
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_form_inherit_cancel
+msgid "Cancel"
+msgstr "キャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__cancel_associated_records
+msgid "Cancel Associated Records"
+msgstr "関連するレコードのキャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__cancel_only
+msgid "Cancel Only"
+msgstr "キャンセルのみ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__option
+msgid "Cancel Option"
+msgstr "キャンセルオプション"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_configuration
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Cancel Purchase Configuration"
+msgstr "購入構成のキャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_date_range_wizard
+msgid "Cancel Purchase Custom Date Range Wizard"
+msgstr "購入のキャンセル カスタム日付範囲ウィザード"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_dashboard
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_dashboard
+msgid "Cancel Purchase Dashboard"
+msgstr "購入をキャンセルするダッシュボード"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_data_history
+msgid "Cancel Purchase Data History"
+msgstr "購入データ履歴のキャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_main
+msgid "Cancel Purchase Main Page"
+msgstr "購入をキャンセルする メインページ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+#, python-format
+msgid "Cancel Purchase Order"
+msgstr "注文書のキャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_main
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_root
+msgid "Cancel Purchase Orders"
+msgstr "注文書のキャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.CancelPurchaseDashboardCardTemplate
+msgid "Cancel Purchase Overview"
+msgstr "購入のキャンセルの概要"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__cancel_and_delete
+msgid "Cancel and Delete"
+msgstr "キャンセルと削除"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__reset_to_draft
+msgid "Cancel and Reset to RFQ"
+msgstr "キャンセルしてRFQにリセット"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_purchase_order__cancel_associated_records
+msgid ""
+"Cancel associated receipts and bills when canceling the purchase order."
+msgstr "発注書をキャンセルするときに、関連する領収書と請求書をキャンセルします。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid ""
+"Cancel functionality is globally disabled for regular users. Please contact "
+"your administrator."
+msgstr "キャンセル機能は、一般ユーザーに対してグローバルに無効になっています。 「」までご連絡ください。「あなたの管理者。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Cancel purchase Configuration"
+msgstr "購入をキャンセルする 設定"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__cancelled
+#, python-format
+msgid "Cancelled"
+msgstr "キャンセル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__cancelled_color
+msgid "Cancelled Color"
+msgstr "キャンセルされた色"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__cancelled_count
+msgid "Cancelled Count"
+msgstr "キャンセルされた数"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Cancelled Purchase Orders"
+msgstr "キャンセルされた注文書"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__color
+msgid "Card Color"
+msgstr "色"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Clear Range"
+msgstr "クリアレンジ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.CancelPurchaseDashboardCardTemplate
+msgid ""
+"Click the actions in the dashboard to view detailed records for each type of"
+" cancellation."
+msgstr "ダッシュボード内のアクションをクリックすると、キャンセルの種類ごとに詳細な記録が表示されます。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_bar_html
+msgid "Colored Bar Graph"
+msgstr "色付き棒グラフ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_res_config_settings
+msgid "Config Settings"
+msgstr "コンフィグ設定"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+msgid "Confirm"
+msgstr "確認する"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+#, python-format
+msgid "Confirm Deletion"
+msgstr "削除の確認"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__confirmation_message
+#, python-format
+msgid "Confirmation Message"
+msgstr "確認メッセージ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Confirmed Purchase Orders"
+msgstr "確認された注文書"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__create_uid
+msgid "Created by"
+msgstr "作成者"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__create_date
+msgid "Created on"
+msgstr "作成日"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__custom
+msgid "Custom"
+msgstr "カスタム"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_date_range_wizard
+#, python-format
+msgid "Custom Date Range"
+msgstr "カスタムの日付範囲"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__dashboard_id
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_dashboard
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__icon_image
+msgid "Dashboard Image"
+msgstr "カードアイコン"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_data_history
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_data_history
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_history
+msgid "Data History"
+msgstr "データ履歴"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_purchase_order__date_only
+msgid "Date part of the order date (converted to the user's local time)."
+msgstr "注文日の日付部分（ユーザーの現地時間に変換されます）。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__default_reason
+msgid "Default Cancellation Reason"
+msgstr "デフォルトのキャンセル理由"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__delete
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+msgid "Delete"
+msgstr "消去"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__archived
+msgid "Deleted"
+msgstr "削除されました"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__description
+msgid "Description"
+msgstr "説明"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__display_name
+msgid "Display Name"
+msgstr "表示名"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+msgid "Edit Global Dashboard Icon"
+msgstr "グローバル ダッシュボード アイコンの編集"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Edit Global Dashboard Image"
+msgstr "グローバルダッシュボードの画像を編集"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Edit Image"
+msgstr "画像を編集"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Enable Cancel Purchase"
+msgstr "購入のキャンセルを有効にする"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__enable_feature
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_res_config_settings__enable_feature
+msgid "Enable Cancel Purchase for Users"
+msgstr "ユーザーの購入キャンセルを有効にする"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__enable_feature
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_res_config_settings__enable_feature
+msgid "Enable or disable cancel functionalities for non-admin users."
+msgstr "管理者以外のユーザーのキャンセル機能を有効または無効にします。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__date_end
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__end_date
+msgid "End Date"
+msgstr "終了日"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "From %s"
+msgstr "%s から"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "From %s to %s"
+msgstr "%s から %s まで"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Global Aggregated Data"
+msgstr "グローバルな集約データ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Global Icon"
+msgstr "グローバルアイコン"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Group By"
+msgstr "グループ化"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__id
+msgid "ID"
+msgstr "id"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__write_uid
+msgid "Last Updated by"
+msgstr "最終更新者"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__write_date
+msgid "Last Updated on"
+msgstr "最終更新日"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__model
+msgid "Model"
+msgstr "モデル"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__name
+msgid "Name"
+msgstr "名前"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "Only administrators can restore data history."
+msgstr "データ履歴を復元できるのは管理者だけです。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "Only deleted records can be restored."
+msgstr "復元できるのは削除されたレコードのみです。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_configuration.py:0
+#, python-format
+msgid "Only one Cancel Purchase Configuration record can exist!"
+msgstr "購入キャンセル構成レコードは 1 つだけ存在できます。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__date_only
+msgid "Order Date (Date Only)"
+msgstr "注文日（日付のみ）"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__user_id
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Performed By"
+msgstr "出演者"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_kanban_bar_chart
+msgid "Purchase Bar Chart"
+msgstr "購入棒グラフ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "購買オーダ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order_cancel_wizard
+msgid "Purchase Order Cancel Wizard"
+msgstr "発注書のキャンセルウィザード"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_order_color
+msgid "Purchase Order Color"
+msgstr "注文書の色"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order_confirm_delete_wizard
+msgid "Purchase Order Confirm Delete Wizard"
+msgstr "発注書の確認削除ウィザード"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__confirmed_count
+msgid "Purchase Order Count"
+msgstr "発注数"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Purchase Order Status Overview"
+msgstr "注文書ステータスの概要"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_tree_no_bulk_actions
+msgid "Purchase Orders"
+msgstr "注文書"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Quotation"
+msgstr "引用"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "RFQ"
+msgstr "見積り依頼"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__rfq_color
+msgid "RFQ Color"
+msgstr "見積依頼の色"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__draft_count
+msgid "RFQ Count"
+msgstr "見積依頼数"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "RFQ Purchase Orders"
+msgstr "RFQ 購入注文"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %s is already done and cannot be canceled."
+msgstr "領収書％sは既に行われており、キャンセルすることはできません。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %s is already done and cannot be reset to draft."
+msgstr "領収書％sはすでに行われており、ドラフトにリセットすることはできません。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__record_id_int
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__record_id
+msgid "Record ID"
+msgstr "レコードID"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__name
+msgid "Record Name"
+msgstr "レコード名"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__reset_to_draft
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__reset_to_draft
+msgid "Reset to Draft"
+msgstr "ドラフトにリセット"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_restore_selected_data_history
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_data_history_tree
+msgid "Restore Selected"
+msgstr "選択したものを復元する"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__restored
+msgid "Restored"
+msgstr "復元されました"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+msgid "Save"
+msgstr "保存"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Search Data History"
+msgstr "検索データ履歴"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "Search Purchase Dashboard"
+msgstr "購入ダッシュボードの検索"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Select Custom Date Range"
+msgstr "カスタム日付範囲の選択"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__time_range
+msgid "Select a time range for the dashboard."
+msgstr "ダッシュボードの時間範囲を選択します。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__selected_date_range
+msgid "Selected Date Range"
+msgstr "選択した日付範囲"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__associated_data
+msgid "Serialized data for related fields"
+msgstr "関連フィールドのシリアル化されたデータ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Set Custom Date Range"
+msgstr "カスタム日付範囲の設定"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__default_reason
+msgid "Specify a default reason for cancellations."
+msgstr "デフォルトのキャンセル理由を指定します。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__date_start
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__start_date
+msgid "Start Date"
+msgstr "開始日"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_date_range_wizard.py:0
+#, python-format
+msgid "Start Date cannot be after End Date."
+msgstr "開始日は終了日より後にはできません。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__state
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "State"
+msgstr "州"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "Success"
+msgstr "成功"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid ""
+"The purchase order and associated records have been reset to Draft "
+"successfully."
+msgstr "発注書と関連レコードは正常にドラフトにリセットされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order and associated records have been reset to Draft."
+msgstr "発注書と関連レコードはドラフトにリセットされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid ""
+"The purchase order and associated records have been restored successfully."
+msgstr "注文書と関連記録は正常に復元されました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been archived to data history."
+msgstr "注文書はデータ履歴にアーカイブされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been cancelled."
+msgstr "注文はキャンセルされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been marked as 'Cancelled'."
+msgstr "注文書は「キャンセル」としてマークされています。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been restored from the archive."
+msgstr "注文書がアーカイブから復元されました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "The purchase order has been successfully cancelled."
+msgstr "注文は正常にキャンセルされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "The purchase order has been successfully deleted."
+msgstr "注文書は正常に削除されました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order is already active and does not need restoration."
+msgstr "注文書はすでに有効になっているため、復元する必要はありません。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "The purchase order is already in draft state. No changes made."
+msgstr "注文書はすでに下書き状態です。変更はありません"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "The purchase order no longer exists."
+msgstr "注文書はもう存在しません。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "The purchase order record could not be found or is already active."
+msgstr "注文書レコードが見つからないか、すでにアクティブです。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_month
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Month"
+msgstr "今月"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_quarter
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Quarter"
+msgstr "今四半期"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_week
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Week"
+msgstr "今週"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_year
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Year"
+msgstr "今年"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This bill was canceled along with the purchase order."
+msgstr "この請求書は注文書とともにキャンセルされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This bill was reset to draft along with the purchase order."
+msgstr "この請求書は、発注書とともにドラフトにリセットされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "This bill was restored along with the purchase order."
+msgstr "この請求書は注文書とともに復元されました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This receipt was canceled along with the purchase order."
+msgstr "この領収書は注文書とともにキャンセルされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This receipt was reset to draft along with the purchase order."
+msgstr "この領収書は注文書とともに下書きにリセットされました。"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "This receipt was restored along with the purchase order."
+msgstr "この領収書は注文書とともに復元されました。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__time_range
+msgid "Time Range"
+msgstr "時間範囲"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__timestamp
+msgid "Timestamp"
+msgstr "タイムスタンプ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__today
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "Today"
+msgstr "今日"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_toggle_cancel_purchase_access_group
+msgid "Toggle Cancel Purchase Access Group Membership"
+msgstr "Toggle 購入のキャンセル アクセスグループメンバーシップ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Total Orders"
+msgstr "総注文数"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Until %s"
+msgstr "%s まで"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__icon_image
+msgid "Upload an image to use as the icon for the global dashboard card."
+msgstr "グローバル ダッシュボード カードのアイコンとして使用する画像をアップロードします。"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_res_users
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__employee_id
+msgid "User"
+msgstr "ユーザ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "Warning"
+msgstr "警告"

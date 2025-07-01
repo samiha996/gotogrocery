@@ -1,0 +1,83 @@
+<odoo>
+    <!-- Record Rule for User Access -->
+    <record id="model_cancel_purchase_data_history_rule_user" model="ir.rule">
+        <field name="name">Cancel Purchase Data History User Access</field>
+        <field name="model_id" ref="model_cancel_purchase_data_history"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_cancel_purchase_data_history_tree" model="ir.ui.view">
+        <field name="name">cancel.purchase.data.history.tree</field>
+        <field name="model">cancel.purchase.data.history</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" decoration-muted="state == 'restored'">
+                <header>
+                    <!-- A button that calls restore_data on selected records -->
+                    <button name="restore_data" string="Restore Selected" type="object" class="btn btn-primary"/>
+                </header>
+                <field name="timestamp"/>
+                <field name="name"/>
+                <field name="record_id"/>
+                <field name="action_type"/>
+                <field name="state"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cancel_purchase_data_history" model="ir.actions.act_window">
+        <field name="name">Data History</field>
+        <field name="res_model">cancel.purchase.data.history</field>
+        <field name="view_mode">tree</field>
+        <field name="target">current</field>
+    </record>
+
+
+
+    <record id="action_restore_selected_data_history" model="ir.actions.server">
+        <field name="name">Restore Selected</field>
+        <field name="model_id" ref="model_cancel_purchase_data_history"/>
+        <field name="state">code</field>
+        <!-- Calls your existing restore_data() method on the selected records -->
+        <field name="code">env['cancel.purchase.data.history'].browse(records.ids).restore_data()</field>
+
+        <!-- Binding: show in the Action menu for the list view of Data History -->
+        <field name="binding_model_id" ref="model_cancel_purchase_data_history"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <!-- New Search View with predefined Group By filters -->
+    <record id="view_data_history_search" model="ir.ui.view">
+        <field name="name">cancel.purchase.data.history.search</field>
+        <field name="model">cancel.purchase.data.history</field>
+        <field name="arch" type="xml">
+            <search string="Search Data History">
+                <!-- Advanced search fields (optional) -->
+                <group>
+                    <!-- Adjust these field names as needed -->
+                    <field name="user_id" string="Performed By"/>
+                    <field name="state"/>
+                </group>
+                <!-- Predefined Group By filters -->
+                <group expand="1" string="Group By">
+                    <filter string="Performed By"
+                            name="group_performed_by"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter string="State"
+                            name="group_state"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- New Action to use the above search view -->
+    <record id="action_data_history" model="ir.actions.act_window">
+        <field name="name">Data History</field>
+        <field name="res_model">cancel.purchase.data.history</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_data_history_search"/>
+    </record>
+</odoo>

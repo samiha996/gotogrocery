@@ -1,0 +1,6 @@
+<odoo>
+    <record id="model_cancel_sales_dashboard" model="ir.model">
+        <field name="name">cancel.purchase.dashboard</field>
+        <field name="model">cancel.purchase.dashboard</field>
+    </record>
+</odoo>

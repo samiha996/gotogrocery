@@ -1,0 +1,32 @@
+<odoo>
+<record id="view_cancel_purchase_date_range_wizard_form" model="ir.ui.view">
+<field name="name">cancel.purchase.date.range.wizard.form</field>
+<field name="model">cancel.purchase.date.range.wizard</field>
+<field name="arch" type="xml">
+<form string="Select Custom Date Range">
+<sheet>
+<!-- The wizard will store a link to the dashboard record -->
+<field name="dashboard_id" invisible="1"/>
+<group>
+<field name="start_date"/>
+<field name="end_date"/>
+</group>
+<footer>
+<!-- "Apply" sets time_range='custom' and the chosen dates -->
+<button name="action_apply_date_range" string="Apply" type="object" class="btn-primary"/>
+<!-- "Clear" resets to all_time and clears the dates -->
+<button name="action_clear_date_range" string="Clear Range" type="object" class="btn-secondary"/>
+<button string="Cancel" class="btn-secondary" special="cancel"/>
+</footer>
+</sheet>
+</form>
+</field>
+</record>
+<record id="action_cancel_purchase_date_range_wizard" model="ir.actions.act_window">
+<field name="name">Custom Date Range</field>
+<field name="res_model">cancel.purchase.date.range.wizard</field>
+<field name="view_mode">form</field>
+<field name="view_id" ref="view_cancel_purchase_date_range_wizard_form"/>
+<field name="target">new</field>
+</record>
+</odoo> 

@@ -1,0 +1,22 @@
+<odoo>
+    <record id="action_bulk_cancel_only_purchase" model="ir.actions.server">
+        <field name="name">Bulk Cancel Only</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_cancel_only()</field>
+    </record>
+
+    <record id="action_bulk_reset_to_draft_purchase" model="ir.actions.server">
+        <field name="name">Bulk Set to RFQ</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_reset_to_draft()</field>
+    </record>
+
+    <record id="action_bulk_cancel_and_delete_purchase" model="ir.actions.server">
+        <field name="name">Bulk Cancel and Delete</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_cancel_and_delete()</field>
+    </record>
+</odoo>

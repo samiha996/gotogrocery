@@ -1,0 +1,42 @@
+<odoo>
+    <record id="action_toggle_cancel_purchase_access_group" model="ir.actions.server">
+        <field name="name">Toggle Cancel Purchase Access Group Membership</field>
+        <field name="model_id" ref="base.model_res_config_settings"/>
+        <field name="state">code</field>
+        <field name="code">model.toggle_user_cancel_access_group()</field>
+    </record>
+
+    <!-- Bulk Cancel Only Action -->
+    <record id="action_bulk_cancel_only" model="ir.actions.server">
+        <field name="name">Bulk Cancel Only</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_cancel_only()</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user')), (4, ref('base.group_system'))]"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <!-- Bulk Reset to Draft Action -->
+    <record id="action_bulk_reset_to_draft" model="ir.actions.server">
+        <field name="name">Bulk Set to RFQ</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_reset_to_draft()</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user')), (4, ref('base.group_system'))]"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+    <!-- Bulk Cancel and Delete Action -->
+    <record id="action_bulk_cancel_and_delete" model="ir.actions.server">
+        <field name="name">Bulk Cancel and Delete</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="state">code</field>
+        <field name="code">env['purchase.order'].browse(records.ids).action_bulk_cancel_and_delete()</field>
+        <field name="groups_id" eval="[(4, ref('base.group_user')), (4, ref('base.group_system'))]"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

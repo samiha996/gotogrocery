@@ -1,0 +1,146 @@
+<odoo>
+    <!-- Form View for Editing the Icon -->
+    <record id="view_cancel_purchase_dashboard_form" model="ir.ui.view">
+        <field name="name">cancel.purchase.dashboard.form</field>
+        <field name="model">cancel.purchase.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Edit Global Dashboard Icon">
+                <sheet>
+                    <group>
+                        <field name="icon_image"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'preview_image': 'icon_image'}"/>
+                    </group>
+                    <footer>
+                        <!-- Cancel/Save Buttons -->
+                        <button string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"/>
+                        <button name="action_save_icon"
+                                string="Save"
+                                type="object"
+                                class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban View for the Dashboard -->
+    <record id="view_cancel_purchase_dashboard_kanban" model="ir.ui.view">
+        <field name="name">cancel.purchase.dashboard.kanban</field>
+        <field name="model">cancel.purchase.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard" create="false">
+                <field name="employee_id"/>
+                <field name="color"/>
+                <field name="draft_count"/>
+                <field name="confirmed_count"/>
+                <field name="cancelled_count"/>
+                <field name="purchase_bar_html"/>
+                <field name="icon_image"/>
+                <field name ="record_id_int"/>
+                <field name="selected_date_range" invisible="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="o_kanban_card #{kanban_color(record.color.raw_value)}">
+          <div class="o_kanban_card_header"
+                                 style="display: flex; align-items: center; justify-content: space-between; padding: 10px;">
+                                <!-- Left: Header text -->
+                                <h4 style="margin: 0;">
+                                    <t t-if="record.employee_id.raw_value">
+                                        <t t-esc="record.employee_id.value"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="'Global Aggregated Data'"/>
+                                    </t>
+                                </h4>
+                                <!-- Right: Pencil icon (only for global record) -->
+                                <t t-if="!record.employee_id.raw_value">
+                                    <button type="object"
+                                            name="action_edit_icon"
+                                            class="btn btn-link"
+                                            title="Edit Image"
+                                            style="margin: 0;">
+                                        <i class="fa fa-pencil" 
+                                        style="position:absolute; right:10px; top:5%; transform:translateY(-50%); color:#333; padding:2px;"></i>
+                                    </button>
+                                </t>
+                            </div>
+                            <div class="o_kanban_card_body" style="padding: 15px;">
+                                <!-- Your body content remains unchanged -->
+                                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                                    <t t-if="record.employee_id.raw_value">
+                                        <img t-att-src="kanban_image('res.users', 'image_1920', record.employee_id.raw_value)"
+                                             class="oe_avatar o_kanban_image emp_image img-fluid"
+                                             style="border-radius: 8px; padding: 5px; width: 80px; height: 80px;"
+                                             t-att-title="record.employee_id.value"
+                                             t-att-alt="'User: %s' % record.employee_id.value"/>
+                                    </t>
+                                    <t t-elif="record.icon_image.raw_value">
+                                        <img t-att-src="'/dashboard_icon/' + record.record_id_int.value"
+                                             class="oe_avatar o_kanban_image emp_image img-fluid"
+                                             style="border-radius: 8px; padding: 5px; width: 80px; height: 80px;"                         
+                                             alt="Global Icon"/>
+                                    </t>
+                                    <t t-else="">
+                                    <img src="/zehntech_cancel_purchase_orders/static/description/fallback.png"
+                                        class="oe_avatar o_kanban_image emp_image"
+                                             style="border-radius: 8px; padding: 5px; width: 80px; height: 80px;"
+                                             alt="Global Aggregated Data"/>
+                                    </t>
+                                </div>
+                                                                        <t t-if="record.selected_date_range.value">
+                                    <div style="text-align:center; margin-bottom:5px; font-size:12px;">
+                                        <t t-esc="record.selected_date_range.value"/>
+                                    </div>
+                                </t>
+                                <div t-out="record.purchase_bar_html.value" style="margin-bottom: 20px;"/>
+                                <div style="text-align: center; margin-bottom: 15px;">
+                                    <button type="object"
+                                            name="action_open_custom_range_wizard"
+                                            class="btn btn-secondary">
+                                        <span>Custom Date Range</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <a class="btn btn-primary text-white"
+                                       name="action_open_draft_records"
+                                       type="object"
+                                       role="button"
+                                       style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                        <span>RFQ</span>
+                                        <span class="badge badge-light"
+                                              style="font-size: 15px; font-weight: bold; padding: 5px 10px; border-radius: 5px;"
+                                              t-esc="record.draft_count.value"/>
+                                    </a>
+                                    <a class="btn btn-success text-white"
+                                       name="action_open_confirmed_records"
+                                       type="object"
+                                       role="button"
+                                       style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                        <span>PURCHASE ORDER</span>
+                                        <span class="badge badge-light"
+                                              style="font-size: 15px; font-weight: bold; padding: 5px 10px; border-radius: 5px;"
+                                              t-esc="record.confirmed_count.value"/>
+                                    </a>
+                                    <a class="btn btn-danger text-white"
+                                       name="action_open_cancelled_records"
+                                       type="object"
+                                       role="button"
+                                       style="padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                        <span>CANCELLED</span>
+                                        <span class="badge badge-light"
+                                              style="font-size: 15px; font-weight: bold; padding: 5px 10px; border-radius: 5px;"
+                                              t-esc="record.cancelled_count.value"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+{
+    'name': 'Cancel Purchase Orders',
+    'version': '17.0.1.0.0',
+    'category': 'Purchases',
+    'summary': 'Provides flexible options for canceling purchase orders, including reset to draft and delete, with bulk cancellation capabilities.',
+    'description': """The Purchase Order Cancel Management module enhances the functionality of purchase orders by providing users with flexible cancellation options. It allows users to cancel purchase orders without affecting delivery or invoice statuses, reset purchase orders and their associated bills and receipts records to draft for further modifications, and permanently delete purchase orders along with all related records. For efficient management, users can also perform bulk cancellations directly from the purchase order tree view. Additionally, the module offers the option to cancel associated delivery and invoice records during the cancellation process.""",
+    'author': "Zehntech Technologies Inc.",
+    'company': "Zehntech Technologies Inc.",
+    'maintainer': "Zehntech Technologies Inc.",
+    'contributor': "Zehntech Technologies Inc.",
+    'website': "https://www.zehntech.com/",
+    'support': "odoo-support@zehntech.com",
+    'depends': ['purchase', 'stock','mail','web','base',],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/purchase_order_action.xml',
+        'data/server_actions.xml',
+        # 'data/ir_model_data.xml',
+        'views/purchase_order_cancel_wizard_view.xml',
+        'views/purchase_order_views.xml',
+        'views/cancel_purchase_main_views.xml',
+        'views/cancel_purchase_dashboard_views.xml',
+        'views/cancel_purchase_dashboard_search.xml',
+        'views/purchase_order_tree_no_bulk_actions.xml',
+        'views/cancel_purchase_data_history_views.xml',
+        'views/cancel_purchase_dashboard_template.xml',
+        'views/cancel_purchase_menus.xml',
+        'views/res_config_settings_views.xml',
+        'views/cancel_purchase_date_range_wizard_view.xml'
+
+    ],
+
+    'i18n': [
+        'i18n/de.po',
+        'i18n/es.po',
+        'i18n/fr.po',
+        'i18n/ja_JP.po'
+    ],
+    'images': ['static/description/banner.png'],
+    'license': "OPL-1",
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    "price": 00,
+    "currency": "USD",
+}

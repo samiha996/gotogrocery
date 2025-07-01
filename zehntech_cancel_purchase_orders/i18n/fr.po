@@ -1,0 +1,971 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zehntech_cancel_purchase_orders
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-17 09:12+0000\n"
+"PO-Revision-Date: 2025-04-17 09:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>CANCELLED</span>"
+msgstr "<span>ANNULÉ</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>Custom Date Range</span>"
+msgstr "<span>Plage de dates personnalisée</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>PURCHASE ORDER</span>"
+msgstr "<span>BON DE COMMANDE</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "<span>RFQ</span>"
+msgstr "<span>DEMANDE DE PRIX</span>"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__action_type
+msgid "Action Type"
+msgstr "Type d'action"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__all_time
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "All Time"
+msgstr "Tout le temps"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "Already in Draft"
+msgstr "Déjà en projet"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "Are you sure you want to permanently delete this Purchase Order?"
+msgstr ""
+"Êtes-vous sûr de vouloir supprimer définitivement ce bon de commande ?"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__associated_data
+msgid "Associated Data"
+msgstr "Données associées"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bill %s is posted/paid and was not canceled."
+msgstr ""
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bill %s is posted/paid and was not reset to draft."
+msgstr ""
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_only
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_only_purchase
+msgid "Bulk Cancel Only"
+msgstr "Annulation groupée uniquement"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_and_delete
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_cancel_and_delete_purchase
+msgid "Bulk Cancel and Delete"
+msgstr "Annulation et suppression groupées"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_reset_to_draft
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_bulk_reset_to_draft_purchase
+msgid "Bulk Set to RFQ"
+msgstr "Définir en masse sur RFQ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Bulk cancel actions are not allowed from the Dashboard."
+msgstr ""
+"Les actions d'annulation groupée ne sont pas autorisées à partir du tableau "
+"de bord."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__cancel
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_form_inherit_cancel
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__cancel_associated_records
+msgid "Cancel Associated Records"
+msgstr "Annuler les enregistrements associés"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__cancel_only
+msgid "Cancel Only"
+msgstr "Annuler seulement"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__option
+msgid "Cancel Option"
+msgstr "Option d'annulation"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_configuration
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Cancel Purchase Configuration"
+msgstr "Annuler la configuration de l'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_date_range_wizard
+msgid "Cancel Purchase Custom Date Range Wizard"
+msgstr "Annuler l'achat Assistant de plage de dates personnalisée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_dashboard
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_dashboard
+msgid "Cancel Purchase Dashboard"
+msgstr "Tableau de bord d'annulation d'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_data_history
+msgid "Cancel Purchase Data History"
+msgstr "Annuler l'historique des données d'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_cancel_purchase_main
+msgid "Cancel Purchase Main Page"
+msgstr "Page principale d'annulation de l'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+#, python-format
+msgid "Cancel Purchase Order"
+msgstr "Annuler le bon de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_main
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_root
+msgid "Cancel Purchase Orders"
+msgstr "Annuler les bons de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.CancelPurchaseDashboardCardTemplate
+msgid "Cancel Purchase Overview"
+msgstr "Annuler l'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__cancel_and_delete
+msgid "Cancel and Delete"
+msgstr "Annuler et supprimer"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__purchase_order_cancel_wizard__option__reset_to_draft
+msgid "Cancel and Reset to RFQ"
+msgstr "Annuler et réinitialiser à RFQ"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_purchase_order__cancel_associated_records
+msgid ""
+"Cancel associated receipts and bills when canceling the purchase order."
+msgstr ""
+"Annulez les reçus et les factures associés lors de l’annulation du bon de "
+"commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid ""
+"Cancel functionality is globally disabled for regular users. Please contact "
+"your administrator."
+msgstr ""
+"La fonctionnalité d'annulation est globalement désactivée pour les "
+"utilisateurs réguliers. Veuillez contacter votre administrateur."
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Cancel purchase Configuration"
+msgstr "Annuler l'achat Configuration"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__cancelled
+#, python-format
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__cancelled_color
+msgid "Cancelled Color"
+msgstr "Couleur annulée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__cancelled_count
+msgid "Cancelled Count"
+msgstr "Nombre annulé"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Cancelled Purchase Orders"
+msgstr "Bons de commande annulés"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__color
+msgid "Card Color"
+msgstr "Couleur"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Clear Range"
+msgstr "Effacer la plage"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.CancelPurchaseDashboardCardTemplate
+msgid ""
+"Click the actions in the dashboard to view detailed records for each type of"
+" cancellation."
+msgstr ""
+"Cliquez sur les actions dans le tableau de bord pour afficher les "
+"enregistrements détaillés pour chaque type d'annulation."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_bar_html
+msgid "Colored Bar Graph"
+msgstr "Graphique à barres colorées"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_cancel_wizard_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+#, python-format
+msgid "Confirm Deletion"
+msgstr "Confirmer la suppression"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__confirmation_message
+#, python-format
+msgid "Confirmation Message"
+msgstr "Message de confirmation"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Confirmed Purchase Orders"
+msgstr "Bons de commande confirmés"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__create_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__create_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__create_date
+msgid "Created on"
+msgstr "Créé sur"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__custom
+msgid "Custom"
+msgstr "Coutume"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_date_range_wizard
+#, python-format
+msgid "Custom Date Range"
+msgstr "Plage de dates personnalisée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__dashboard_id
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_dashboard
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__icon_image
+msgid "Dashboard Image"
+msgstr "Icône de carte"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_cancel_purchase_data_history
+#: model:ir.actions.act_window,name:zehntech_cancel_purchase_orders.action_data_history
+#: model:ir.ui.menu,name:zehntech_cancel_purchase_orders.menu_cancel_purchase_history
+msgid "Data History"
+msgstr "Historique des données"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_purchase_order__date_only
+msgid "Date part of the order date (converted to the user's local time)."
+msgstr ""
+"Date faisant partie de la date de la commande (convertie à l'heure locale de"
+" l'utilisateur)."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__default_reason
+msgid "Default Cancellation Reason"
+msgstr "Raison d'annulation par défaut"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__delete
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_confirm_delete_wizard_form
+msgid "Delete"
+msgstr "Supprimer"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__archived
+msgid "Deleted"
+msgstr "Supprimé"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__description
+msgid "Description"
+msgstr ""
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__display_name
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+msgid "Edit Global Dashboard Icon"
+msgstr "Modifier l'icône du tableau de bord global"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Edit Global Dashboard Image"
+msgstr "Modifier l'image du tableau de bord global"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Edit Image"
+msgstr "Modifier l'image"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_res_config_settings_cancel_purchase
+msgid "Enable Cancel Purchase"
+msgstr "Activer Annuler l'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__enable_feature
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_res_config_settings__enable_feature
+msgid "Enable Cancel Purchase for Users"
+msgstr "Activer l'annulation de l'achat pour les utilisateurs"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__enable_feature
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_res_config_settings__enable_feature
+msgid "Enable or disable cancel functionalities for non-admin users."
+msgstr ""
+"Activez ou désactivez les fonctionnalités d'annulation pour les utilisateurs"
+" non administrateurs."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__date_end
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__end_date
+msgid "End Date"
+msgstr "Date de fin"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "From %s"
+msgstr "De %s"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "From %s to %s"
+msgstr "De %s à %s"
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Global Aggregated Data"
+msgstr "Données agrégées mondiales"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_kanban
+msgid "Global Icon"
+msgstr "Icône globale"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__id
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__id
+msgid "ID"
+msgstr "IDENTIFIANT"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__write_uid
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_cancel_wizard__write_date
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order_confirm_delete_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour sur"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__model
+msgid "Model"
+msgstr "Modèle"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_main__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "Only administrators can restore data history."
+msgstr "Seuls les administrateurs peuvent restaurer l'historique des données."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "Only deleted records can be restored."
+msgstr "Seuls les enregistrements supprimés peuvent être restaurés."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_configuration.py:0
+#, python-format
+msgid "Only one Cancel Purchase Configuration record can exist!"
+msgstr ""
+"Un seul enregistrement de configuration d’annulation d’achat peut exister !"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_purchase_order__date_only
+msgid "Order Date (Date Only)"
+msgstr "Date de commande (date uniquement)"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__user_id
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Performed By"
+msgstr "Interprété par"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_kanban_bar_chart
+msgid "Purchase Bar Chart"
+msgstr "Graphique à barres d'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "Bon de commande fournisseur"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order_cancel_wizard
+msgid "Purchase Order Cancel Wizard"
+msgstr "Assistant d'annulation de bon de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__purchase_order_color
+msgid "Purchase Order Color"
+msgstr "Couleur du bon de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_purchase_order_confirm_delete_wizard
+msgid "Purchase Order Confirm Delete Wizard"
+msgstr "Assistant de suppression de confirmation de bon de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__confirmed_count
+msgid "Purchase Order Count"
+msgstr "Nombre de bons de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Purchase Order Status Overview"
+msgstr "Aperçu du statut du bon de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_purchase_order_tree_no_bulk_actions
+msgid "Purchase Orders"
+msgstr "Bons de commande"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Quotation"
+msgstr "Citation"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "RFQ"
+msgstr "Dem. de Pr."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__rfq_color
+msgid "RFQ Color"
+msgstr "Couleur de la demande de prix"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__draft_count
+msgid "RFQ Count"
+msgstr "Nombre de demandes de devis"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "RFQ Purchase Orders"
+msgstr "Bons de commande RFQ"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %s is already done and cannot be canceled."
+msgstr "Le reçu% s est déjà fait et ne peut pas être annulé."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "Receipt %s is already done and cannot be reset to draft."
+msgstr ""
+"Le réception% s est déjà fait et ne peut pas être réinitialisé pour rédiger."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__record_id_int
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__record_id
+msgid "Record ID"
+msgstr "Identifiant de l'enregistrement"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__name
+msgid "Record Name"
+msgstr "Nom de l'enregistrement"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__action_type__reset_to_draft
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__reset_to_draft
+msgid "Reset to Draft"
+msgstr "Réinitialiser au brouillon"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_restore_selected_data_history
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_data_history_tree
+msgid "Restore Selected"
+msgstr "Restaurer la sélection"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_data_history__state__restored
+msgid "Restored"
+msgstr "Restauré"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_form
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "Search Data History"
+msgstr ""
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "Search Purchase Dashboard"
+msgstr "Rechercher un tableau de bord d'achat"
+
+#. module: zehntech_cancel_purchase_orders
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_date_range_wizard_form
+msgid "Select Custom Date Range"
+msgstr "Sélectionner une plage de dates personnalisée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__time_range
+msgid "Select a time range for the dashboard."
+msgstr "Sélectionnez une plage de dates personnalisée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__selected_date_range
+msgid "Selected Date Range"
+msgstr "Plage de dates sélectionnée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__associated_data
+msgid "Serialized data for related fields"
+msgstr "Données sérialisées pour les champs associés"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Set Custom Date Range"
+msgstr "Définir une plage de dates personnalisée"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_configuration__default_reason
+msgid "Specify a default reason for cancellations."
+msgstr "Spécifiez un motif par défaut pour les annulations."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__date_start
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_date_range_wizard__start_date
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_date_range_wizard.py:0
+#, python-format
+msgid "Start Date cannot be after End Date."
+msgstr "La date de début ne peut pas être postérieure à la date de fin."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__state
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_data_history_search
+msgid "State"
+msgstr "État"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "Success"
+msgstr "Succès"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid ""
+"The purchase order and associated records have been reset to Draft "
+"successfully."
+msgstr ""
+"Le bon de commande et les enregistrements associés ont été réinitialisés "
+"avec succès à l'état Brouillon."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order and associated records have been reset to Draft."
+msgstr ""
+"Le bon de commande et les enregistrements associés ont été réinitialisés à "
+"Brouillon."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid ""
+"The purchase order and associated records have been restored successfully."
+msgstr ""
+"Le bon de commande et les enregistrements associés ont été restaurés avec "
+"succès."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been archived to data history."
+msgstr "Le bon de commande a été archivé dans l'historique des données."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been cancelled."
+msgstr "Le bon de commande a été annulé."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been marked as 'Cancelled'."
+msgstr "Le bon de commande a été marqué comme « Annulé »."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order has been restored from the archive."
+msgstr "Le bon de commande a été restauré à partir des archives."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "The purchase order has been successfully cancelled."
+msgstr "Le bon de commande a été annulé avec succès."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "The purchase order has been successfully deleted."
+msgstr "Le bon de commande a été supprimé avec succès."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "The purchase order is already active and does not need restoration."
+msgstr "Le bon de commande est déjà actif et n'a pas besoin d'être restauré."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_cancel_wizard.py:0
+#, python-format
+msgid "The purchase order is already in draft state. No changes made."
+msgstr ""
+"Le bon de commande est déjà à l’état de brouillon. Aucune modification "
+"apportée."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "The purchase order no longer exists."
+msgstr "Le bon de commande n'existe plus."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "The purchase order record could not be found or is already active."
+msgstr ""
+"L'enregistrement du bon de commande est introuvable ou est déjà actif."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_month
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Month"
+msgstr "Ce mois-ci"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_quarter
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Quarter"
+msgstr "Ce trimestre"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_week
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Week"
+msgstr "Cette semaine"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__this_year
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "This Year"
+msgstr "Cette année"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This bill was canceled along with the purchase order."
+msgstr "Cette facture a été annulée avec le bon de commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This bill was reset to draft along with the purchase order."
+msgstr ""
+"Cette facture a été réinitialisée en tant que brouillon avec le bon de "
+"commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "This bill was restored along with the purchase order."
+msgstr "Cette facture a été restituée avec le bon de commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This receipt was canceled along with the purchase order."
+msgstr "Ce reçu a été annulé avec le bon de commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/purchase_order.py:0
+#, python-format
+msgid "This receipt was reset to draft along with the purchase order."
+msgstr ""
+"Ce reçu a été réinitialisé à l'état de brouillon avec le bon de commande."
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_data_history.py:0
+#, python-format
+msgid "This receipt was restored along with the purchase order."
+msgstr "Ce reçu a été restitué avec le bon de commande."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__time_range
+msgid "Time Range"
+msgstr "Plage de temps"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_data_history__timestamp
+msgid "Timestamp"
+msgstr "Horodatage"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields.selection,name:zehntech_cancel_purchase_orders.selection__cancel_purchase_dashboard__time_range__today
+#: model_terms:ir.ui.view,arch_db:zehntech_cancel_purchase_orders.view_cancel_purchase_dashboard_search
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.actions.server,name:zehntech_cancel_purchase_orders.action_toggle_cancel_purchase_access_group
+msgid "Toggle Cancel Purchase Access Group Membership"
+msgstr "Toggle Annuler l'adhésion au groupe d'accès aux achats"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Total Orders"
+msgstr "Total des commandes"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/models/cancel_purchase_dashboard.py:0
+#, python-format
+msgid "Until %s"
+msgstr "Jusqu'à %s"
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model.fields,help:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__icon_image
+msgid "Upload an image to use as the icon for the global dashboard card."
+msgstr ""
+"Téléchargez une image à utiliser comme icône pour la carte du tableau de "
+"bord global."
+
+#. module: zehntech_cancel_purchase_orders
+#: model:ir.model,name:zehntech_cancel_purchase_orders.model_res_users
+#: model:ir.model.fields,field_description:zehntech_cancel_purchase_orders.field_cancel_purchase_dashboard__employee_id
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: zehntech_cancel_purchase_orders
+#. odoo-python
+#: code:addons/zehntech_cancel_purchase_orders/wizards/purchase_order_confirm_delete_wizard.py:0
+#, python-format
+msgid "Warning"
+msgstr "Avertissement"
