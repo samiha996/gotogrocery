@@ -49,7 +49,7 @@ class PurchaseOrderLine(models.Model):
             if line.product_id:
                 line.product_uom = line.product_id.uom_po_id.id
                 if not line.product_packaging_id and line.product_id.packaging_ids:
-                    line.product_packaging_qty = 1.0	
+                    # line.product_packaging_qty = 1.0	
                     line.product_packaging_id = line.product_id.packaging_ids[0]
                 if line.product_packaging_id and not line._package_price_initialized:
                     line.package_price = line.product_packaging_id.package_price or 0.0
