@@ -56,7 +56,7 @@ class PurchaseOrderLine(models.Model):
             boxes = line.product_packaging_qty or 1.0
 
             line.price_unit = line.package_price / pieces_per_box
-            line.price_subtotal = line.package_price * boxes
+            # line.price_subtotal = line.package_price * boxes
 
     @api.depends('new_qty', 'new_qty_last')
     def _compute_delta_qty(self):
