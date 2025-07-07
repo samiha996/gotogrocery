@@ -49,7 +49,7 @@ class PurchaseOrderLine(models.Model):
             if line.product_id:
                 line.product_uom = line.product_id.uom_po_id.id
                 if not line.product_packaging_id and line.product_id.packaging_ids:
-                    # line.product_packaging_qty = 1.0	
+                    line.product_packaging_qty = 1.0	
                     line.product_packaging_id = line.product_id.packaging_ids[0]
                 if line.product_packaging_id and not line._package_price_initialized:
                     line.package_price = line.product_packaging_id.package_price or 0.0
@@ -101,3 +101,31 @@ class PurchaseOrderLine(models.Model):
         for vals in vals_list:
             vals['new_qty_last'] = vals.get('new_qty', 0.0)
         return super().create(vals_list)
+    
+    
+    @api.depends('product_id', 'product_qty', 'product_uom', 'partner_id', 'currency_id')
+    def _compute_price_unit_and_date_planned_and_name(self):
+        for line in self:
+            if not line.product_id or line.invoice_lines or not line.company_id:
+                continue
+
+            # Force date planned to today or based on your logic
+            line.date_planned = fields.Datetime.now()
+
+            # Custom pricing logic only
+            pieces_per_box = line.product_packaging_id.qty or 1.0
+            if pieces_per_box:
+                line.price_unit = line.package_price / pieces_per_box
+            else:
+                line.price_unit = line.package_price
+
+            # Preserve custom description if any
+            if not line.name:
+                product_lang = line.product_id.with_context(
+                    lang=self.env.user.lang,
+                    partner_id=None,
+                    company_id=line.company_id.id,
+                )
+                line.name = line._get_product_purchase_description(product_lang)
+
+            line.discount = 0.0  # disable vendor discount
