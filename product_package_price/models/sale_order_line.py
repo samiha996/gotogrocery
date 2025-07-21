@@ -71,10 +71,15 @@ class SaleOrderLine(models.Model):
             pieces_per_box = line.product_packaging_id.qty or 1.0
             boxes = line.product_packaging_qty or 0.0
             extra_pieces = line.new_qty or 0.0
-
+    
             total_pieces = (boxes * pieces_per_box) + extra_pieces
-            line.product_uom_qty = total_pieces
-            line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
+            price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
+    
+            # ✅ Prevent recursive calls by updating fields directly in memory
+            line.update({
+                'product_uom_qty': total_pieces,
+                'price_unit': price_unit,
+        })
 
     def write(self, vals):
         res = super().write(vals)
