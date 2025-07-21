@@ -75,7 +75,7 @@ class SaleOrderLine(models.Model):
             total_pieces = (boxes * pieces_per_box) + extra_pieces
             price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
 
-            # ✅ Avoid triggering recursive onchange/write
+            # ✅ Prevent recursion by using update()
             line.update({
                 'product_uom_qty': total_pieces,
                 'price_unit': price_unit,
@@ -86,14 +86,12 @@ class SaleOrderLine(models.Model):
         for line in self:
             if 'new_qty' in vals:
                 line.new_qty_last = line.new_qty
-            line._update_qty_and_prices()
         return res
 
     def create(self, vals_list):
         lines = super().create(vals_list)
         for line in lines:
             line.new_qty_last = line.new_qty or 0.0
-            line._update_qty_and_prices()
         return lines
 
     @api.onchange('product_id', 'product_uom_qty')
@@ -113,5 +111,6 @@ class SaleOrderLine(models.Model):
                 qty_available = line.product_id.qty_available
                 if line.product_uom_qty > qty_available:
                     raise ValidationError(
-                        f"Cannot confirm order. Product '{line.product_id.display_name}' has only {qty_available} unit(s) in stock."
+                        f"Cannot confirm order. Product '{line.product_id.display_name}' "
+                        f"has only {qty_available} unit(s) in stock."
                     )
