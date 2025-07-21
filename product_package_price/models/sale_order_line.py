@@ -71,15 +71,15 @@ class SaleOrderLine(models.Model):
             pieces_per_box = line.product_packaging_id.qty or 1.0
             boxes = line.product_packaging_qty or 0.0
             extra_pieces = line.new_qty or 0.0
-    
+
             total_pieces = (boxes * pieces_per_box) + extra_pieces
             price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
-    
-            # ✅ Prevent recursive calls by updating fields directly in memory
+
+            # ✅ Avoid triggering recursive onchange/write
             line.update({
                 'product_uom_qty': total_pieces,
                 'price_unit': price_unit,
-        })
+            })
 
     def write(self, vals):
         res = super().write(vals)
@@ -101,7 +101,10 @@ class SaleOrderLine(models.Model):
         if self.product_id and self.product_uom_qty:
             qty_available = self.product_id.qty_available
             if self.product_uom_qty > qty_available:
-                raise UserError(f"The selected product '{self.product_id.display_name}' is out of stock. Only {qty_available} unit(s) available.")
+                raise UserError(
+                    f"The selected product '{self.product_id.display_name}' is out of stock. "
+                    f"Only {qty_available} unit(s) available."
+                )
 
     @api.constrains('product_id', 'product_uom_qty')
     def _check_product_stock(self):
