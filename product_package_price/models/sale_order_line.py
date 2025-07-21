@@ -80,6 +80,8 @@ class SaleOrderLine(models.Model):
             line.delta_qty = line.new_qty - line.new_qty_last
 
     def write(self, vals):
+        if 'product_packaging_qty' in vals:
+            vals['product_packaging_qty_manual'] = True
         res = super().write(vals)
         for line in self:
             if 'new_qty' in vals:
@@ -89,6 +91,7 @@ class SaleOrderLine(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             vals['new_qty_last'] = vals.get('new_qty', 0.0)
+            vals['product_packaging_qty_manual'] = True
         return super().create(vals_list)
 
     @api.onchange('product_id', 'product_uom_qty')
