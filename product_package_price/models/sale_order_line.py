@@ -4,17 +4,70 @@ from odoo.exceptions import UserError, ValidationError
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    new_qty = fields.Float(string="New Qty")  # Extra pieces
+    new_qty = fields.Float(string="Extra Pieces")
     package_price = fields.Float(string="Package Price")
     _package_price_initialized = fields.Boolean(default=False)
-    new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
+    new_qty_last = fields.Float(string="Previous New Qty", default=0.0)
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
-    product_packaging_qty_manual = fields.Boolean(default=True)
 
-    # Prevent Odoo from auto-updating product_packaging_qty
-    def _compute_packaging_qty(self):
-        # Override and do nothing
-        pass
+    @api.depends('product_packaging_qty', 'new_qty', 'product_packaging_id')
+    def _compute_product_uom_qty(self):
+        for line in self:
+            if not line.product_packaging_id:
+                line.product_uom_qty = line.new_qty or 0.0
+                continue
+            pieces_per_box = line.product_packaging_id.qty or 1.0
+            boxes = line.product_packaging_qty or 0.0
+            extra_pieces = line.new_qty or 0.0
+            total_pieces = (boxes * pieces_per_box) + extra_pieces
+            line.product_uom_qty = total_pieces
+
+    @api.depends('new_qty', 'new_qty_last')
+    def _compute_delta_qty(self):
+        for line in self:
+            line.delta_qty = line.new_qty - line.new_qty_last
+
+    @api.onchange('product_id')
+    def _onchange_product_id_set_first_packaging(self):
+        for line in self:
+            if line.product_id and not line.product_packaging_id and line.product_id.packaging_ids:
+                line.product_packaging_id = line.product_id.packaging_ids[0]
+
+    @api.onchange('product_packaging_id')
+    def _onchange_product_packaging_id(self):
+        for line in self:
+            if line.product_packaging_id and not line._package_price_initialized:
+                line.package_price = line.product_packaging_id.package_sale_price or 0.0
+                line._package_price_initialized = True
+
+    @api.onchange('product_packaging_qty', 'new_qty')
+    def _onchange_box_or_piece_qty(self):
+        for line in self:
+            # Force recompute
+            line._compute_product_uom_qty()
+
+    @api.onchange('package_price')
+    def _onchange_package_price(self):
+        for line in self:
+            pieces_per_box = line.product_packaging_id.qty or 1.0
+            line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
+
+    @api.onchange('new_qty')
+    def _onchange_new_qty_store_previous(self):
+        for line in self:
+            line.delta_qty = line.new_qty - line.new_qty_last
+
+    def write(self, vals):
+        res = super().write(vals)
+        for line in self:
+            if 'new_qty' in vals:
+                line.new_qty_last = line.new_qty
+        return res
+
+    def create(self, vals_list):
+        for vals in vals_list:
+            vals['new_qty_last'] = vals.get('new_qty', 0.0)
+        return super().create(vals_list)
 
     def _prepare_invoice_line(self, **optional_values):
         res = super()._prepare_invoice_line(**optional_values)
@@ -30,69 +83,6 @@ class SaleOrderLine(models.Model):
             'pieces_qty': self.new_qty or 0.0,
         })
         return values
-
-    @api.onchange('product_id')
-    def _onchange_product_id_set_first_packaging(self):
-        for line in self:
-            if line.product_id and not line.product_packaging_id and line.product_id.packaging_ids:
-                line.product_packaging_id = line.product_id.packaging_ids[0]
-
-    @api.onchange('product_packaging_id')
-    def _onchange_product_packaging_id(self):
-        for line in self:
-            if line.product_packaging_id and not line._package_price_initialized:
-                line.package_price = line.product_packaging_id.package_sale_price or 0.0
-                line._package_price_initialized = True
-            line._update_total_qty()
-
-    @api.onchange('product_packaging_qty', 'new_qty')
-    def _onchange_box_or_piece_qty(self):
-        for line in self:
-            # Prevent Odoo reverse logic
-            line.product_packaging_qty_manual = True
-            line._update_total_qty()
-
-    @api.onchange('package_price')
-    def _onchange_package_price(self):
-        for line in self:
-            line._update_total_qty()
-
-    def _update_total_qty(self):
-        for line in self:
-            pieces_per_box = line.product_packaging_id.qty or 1.0
-            num_boxes = line.product_packaging_qty or 0.0
-            extra_pieces = line.new_qty or 0.0
-
-            total_pieces = (num_boxes * pieces_per_box) + extra_pieces
-            line.product_uom_qty = total_pieces
-
-            # Set unit price per piece
-            line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
-
-    @api.depends('new_qty', 'new_qty_last')
-    def _compute_delta_qty(self):
-        for line in self:
-            line.delta_qty = line.new_qty - line.new_qty_last
-
-    @api.onchange('new_qty')
-    def _onchange_new_qty_store_previous(self):
-        for line in self:
-            line.delta_qty = line.new_qty - line.new_qty_last
-
-    def write(self, vals):
-        if 'product_packaging_qty' in vals:
-            vals['product_packaging_qty_manual'] = True
-        res = super().write(vals)
-        for line in self:
-            if 'new_qty' in vals:
-                line.new_qty_last = line.new_qty
-        return res
-
-    def create(self, vals_list):
-        for vals in vals_list:
-            vals['new_qty_last'] = vals.get('new_qty', 0.0)
-            vals['product_packaging_qty_manual'] = True
-        return super().create(vals_list)
 
     @api.onchange('product_id', 'product_uom_qty')
     def _onchange_product_id_check_stock(self):
