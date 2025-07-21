@@ -9,6 +9,7 @@ class SaleOrderLine(models.Model):
     _package_price_initialized = fields.Boolean(default=False)
     new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
+    product_packaging_qty_manual = fields.Boolean(default=True)
 
     # Prevent Odoo from auto-updating product_packaging_qty
     def _compute_packaging_qty(self):
