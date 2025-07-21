@@ -69,11 +69,14 @@ class SaleOrderLine(models.Model):
     def _update_qty_and_prices(self):
         for line in self:
             pieces_per_box = line.product_packaging_id.qty or 1.0
-            num_boxes = line.product_packaging_qty or 0.0
-            total_pieces = pieces_per_box * num_boxes
-
-           
-            line.product_uom_qty = total_pieces
+            boxes = line.product_packaging_qty or 0.0
+            extra_pieces = line.new_qty or 0.0
+    
+            # ✅ Correct quantity: boxes * pieces + extra
+            total_pieces = (boxes * pieces_per_box) + extra_pieces
+            line.product_uom_qty = float_round(total_pieces, precision_digits=3)
+    
+            # ✅ Correct unit price: box price ÷ pieces per box
             line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
 
     @api.depends('new_qty', 'new_qty_last')
