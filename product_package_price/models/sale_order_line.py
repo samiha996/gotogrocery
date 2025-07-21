@@ -12,6 +12,15 @@ class SaleOrderLine(models.Model):
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
     _package_price_initialized = fields.Boolean(default=False)
 
+    # 👇 Changed digits to 3 decimal places
+    product_packaging_qty = fields.Float(
+        string='Packaging Quantity',
+        digits=(16, 3),
+        compute="_compute_product_packaging_qty",
+        store=True,
+        readonly=False
+    )
+
     def _prepare_invoice_line(self, **optional_values):
         res = super()._prepare_invoice_line(**optional_values)
         res['package_qty'] = self.product_packaging_qty
@@ -66,7 +75,6 @@ class SaleOrderLine(models.Model):
             total_pieces = (boxes * pieces_per_box) + extra_pieces
             line.product_uom_qty = total_pieces
 
-            # Avoid division by zero
             line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
 
     @api.depends('new_qty', 'new_qty_last')
@@ -95,7 +103,6 @@ class SaleOrderLine(models.Model):
     @api.depends('product_uom_qty', 'discount', 'price_unit', 'tax_id')
     def _compute_amount(self):
         for line in self:
-            # 👇 Enforce custom price_unit calculation
             pieces_per_box = line.product_packaging_id.qty or 1.0
             if pieces_per_box:
                 line.price_unit = line.package_price / pieces_per_box
