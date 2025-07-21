@@ -10,6 +10,11 @@ class SaleOrderLine(models.Model):
     new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
     delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
 
+    # Prevent Odoo from auto-updating product_packaging_qty
+    def _compute_packaging_qty(self):
+        # Override and do nothing
+        pass
+
     def _prepare_invoice_line(self, **optional_values):
         res = super()._prepare_invoice_line(**optional_values)
         res['package_qty'] = self.product_packaging_qty
@@ -42,6 +47,8 @@ class SaleOrderLine(models.Model):
     @api.onchange('product_packaging_qty', 'new_qty')
     def _onchange_box_or_piece_qty(self):
         for line in self:
+            # Prevent Odoo reverse logic
+            line.product_packaging_qty_manual = True
             line._update_total_qty()
 
     @api.onchange('package_price')
