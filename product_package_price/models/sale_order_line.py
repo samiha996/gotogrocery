@@ -15,37 +15,13 @@ class SaleOrderLine(models.Model):
         digits=(16, 3),
     )
 
-    @api.depends('product_uom_qty', 'discount', 'price_unit', 'tax_id')
-    def _compute_amount(self):
-        for line in self:
-            # 👇 Enforce custom price_unit calculation
-            pieces_per_box = line.product_packaging_id.qty or 1.0
-            if pieces_per_box:
-                line.price_unit = line.package_price / pieces_per_box
-            else:
-                line.price_unit = line.package_price
-
-            taxes = line.tax_id.compute_all(
-                line.price_unit,
-                line.order_id.currency_id,
-                line.product_uom_qty,
-                product=line.product_id,
-                partner=line.order_id.partner_shipping_id,
-            )
-            line.update({
-                'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
-                'price_total': taxes['total_included'],
-                'price_subtotal': taxes['total_excluded'],
-            })
-
     def _prepare_invoice_line(self, **optional_values):
         res = super()._prepare_invoice_line(**optional_values)
         res['package_qty'] = self.product_packaging_qty
         res['pieces_qty'] = self.new_qty or 0.0
         return res
-    
+
     def _prepare_procurement_values(self, group_id=False):
-        print("..................Preparing procurement values with package_qty:", self.product_packaging_qty)
         values = super()._prepare_procurement_values(group_id)
         self.ensure_one()
         values.update({
@@ -53,7 +29,6 @@ class SaleOrderLine(models.Model):
             'pieces_qty': self.new_qty or 0.0
         })
         return values
-    
 
     @api.onchange('product_id')
     def _onchange_product_id_set_first_packaging(self):
@@ -64,10 +39,9 @@ class SaleOrderLine(models.Model):
     @api.onchange('product_packaging_id')
     def _onchange_product_packaging_id(self):
         for line in self:
-            if line.product_packaging_id:
-                if not line._package_price_initialized:
-                    line.package_price = line.product_packaging_id.package_sale_price or 0.0
-                    line._package_price_initialized = True
+            if line.product_packaging_id and not line._package_price_initialized:
+                line.package_price = line.product_packaging_id.package_sale_price or 0.0
+                line._package_price_initialized = True
             line._update_qty_and_prices()
 
     @api.onchange('product_packaging_qty')
@@ -89,30 +63,33 @@ class SaleOrderLine(models.Model):
     def _onchange_new_qty(self):
         for line in self:
             delta = line.new_qty - line.new_qty_last
-            print(f"New Qty: {line.new_qty}, Last Qty: {line.new_qty_last}, Delta: {delta}")
             line.product_uom_qty += delta
+            line._update_qty_and_prices()
+
+    def _update_qty_and_prices(self):
+        for line in self:
+            pieces_per_box = line.product_packaging_id.qty or 1.0
+            boxes = line.product_packaging_qty or 0.0
+            extra_pieces = line.new_qty or 0.0
+
+            total_pieces = (boxes * pieces_per_box) + extra_pieces
+            line.product_uom_qty = total_pieces
+            line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
 
     def write(self, vals):
         res = super().write(vals)
         for line in self:
             if 'new_qty' in vals:
-                line.new_qty_last = line.new_qty  # Ensure it's saved
+                line.new_qty_last = line.new_qty
+            line._update_qty_and_prices()
         return res
 
     def create(self, vals_list):
-        for vals in vals_list:
-            vals['new_qty_last'] = vals.get('new_qty', 0.0)
-        return super().create(vals_list)
-
-    def _update_qty_and_prices(self):
-        for line in self:
-            pieces_per_box = line.product_packaging_id.qty or 1.0
-            num_boxes = line.product_packaging_qty or 0.0
-            total_pieces = pieces_per_box * num_boxes
-
-           
-            line.product_uom_qty = total_pieces
-            line.price_unit = line.package_price / pieces_per_box if pieces_per_box else 0.0
+        lines = super().create(vals_list)
+        for line in lines:
+            line.new_qty_last = line.new_qty or 0.0
+            line._update_qty_and_prices()
+        return lines
 
     @api.onchange('product_id', 'product_uom_qty')
     def _onchange_product_id_check_stock(self):
@@ -124,7 +101,7 @@ class SaleOrderLine(models.Model):
     @api.constrains('product_id', 'product_uom_qty')
     def _check_product_stock(self):
         for line in self:
-            if line.product_id.type == 'product':  # Only check stockable products
+            if line.product_id.type == 'product':
                 qty_available = line.product_id.qty_available
                 if line.product_uom_qty > qty_available:
                     raise ValidationError(
