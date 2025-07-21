@@ -79,7 +79,7 @@ class SaleOrderLine(models.Model):
     def _update_qty_and_prices(self):
         for line in self:
             pieces_per_box = line.product_packaging_id.qty or 1.0
-            boxes = line.product_packaging_qty or 1.0
+            boxes = line.product_packaging_qty or 0.0
             extra_pieces = line.new_qty or 0.0
     
             total_pieces = (boxes * pieces_per_box) + extra_pieces
