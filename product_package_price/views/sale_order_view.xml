@@ -9,12 +9,13 @@
             </xpath>
              
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
-                <field name="product_packaging_qty" string="Boxes"/>
+                <field name="product_packaging_qty" string="Boxes" digits="[16, 4]" />
+
             </xpath>
 
     
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
-                <field name="new_qty" string="Pieces"/>
+                <field name="new_qty" string="Pieces" />
             </xpath>
 
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace">
