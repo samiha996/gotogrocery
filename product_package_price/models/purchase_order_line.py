@@ -49,6 +49,15 @@ class PurchaseOrderLine(models.Model):
             if line.product_id and not line.product_packaging_id and line.product_id.packaging_ids:
                 line.product_packaging_id = line.product_id.packaging_ids[0]
 
+            # Set default package price
+            if line.product_packaging_id and not line._package_price_initialized:
+                line.package_price = line.product_packaging_id.package_price or 0.0
+                line._package_price_initialized = True
+
+            # 💡 Force recompute of quantities manually
+            line._compute_product_qty()
+            line._update_price()
+
     @api.onchange('product_packaging_id')
     def _onchange_product_packaging_id(self):
         for line in self:
