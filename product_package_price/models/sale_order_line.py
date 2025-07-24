@@ -1,22 +1,15 @@
-from collections import defaultdict
-from datetime import timedelta
-from markupsafe import Markup
+
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
-from odoo.fields import Command
-from odoo.osv import expression
-from odoo.tools import float_compare, float_is_zero, format_date, groupby
 from odoo.tools.translate import _
 
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
-    new_qty = fields.Float(string="New Qty")
+    
     package_price = fields.Float(string="Package Price")
-    new_qty_last = fields.Float(string="Previous New Qty", default=0.0, store=True)
-    delta_qty = fields.Float(string="Delta Qty", compute="_compute_delta_qty", store=False)
     _package_price_initialized = fields.Boolean(default=False)
 
     second_product_uom_qty = fields.Float()
@@ -31,11 +24,17 @@ class SaleOrderLine(models.Model):
         compute='_compute_product_uom_qty',
         digits='Product Unit of Measure', default=False,
         store=True, readonly=False, required=True, precompute=True)
+    
+    price_unit = fields.Float(
+        string='Unit Price',
+        compute='_update_price',
+        digits='Product Price', default=0.0,
+        store=True, readonly=False, precompute=True)
 
     def _prepare_invoice_line(self, **optional_values):
         res = super()._prepare_invoice_line(**optional_values)
         res['package_qty'] = self.product_packaging_qty
-        res['pieces_qty'] = self.new_qty or 0.0
+        res['pieces_qty'] = self.second_product_uom_qty or 0.0
         return res
 
     def _prepare_procurement_values(self, group_id=False):
@@ -43,7 +42,7 @@ class SaleOrderLine(models.Model):
         self.ensure_one()
         values.update({
             'package_qty': self.product_packaging_qty,
-            'pieces_qty': self.new_qty or 0.0
+            'pieces_qty': self.second_product_uom_qty or 0.0
         })
         return values
 
@@ -67,22 +66,12 @@ class SaleOrderLine(models.Model):
         for line in self:
             line._update_price()
 
-    @api.onchange('package_price')
+    @api.onchange('package_price','second_product_uom_qty')
     def _onchange_package_price(self):
         for line in self:
             line._update_price()
 
-    @api.depends('new_qty', 'new_qty_last')
-    def _compute_delta_qty(self):
-        for line in self:
-            line.delta_qty = line.new_qty - line.new_qty_last
-
-    @api.onchange('new_qty')
-    def _onchange_new_qty(self):
-        for line in self:
-            delta = line.new_qty - line.new_qty_last
-            line.product_uom_qty += delta
-            line._update_price()
+    
 
     def _update_price(self):
         for line in self:
@@ -116,18 +105,7 @@ class SaleOrderLine(models.Model):
             if self.second_product_uom_qty >= package_qty:
                 raise ValidationError("Qty exceed box qty limit in place of it just increment the boxes qty.")
 
-    def write(self, vals):
-        res = super().write(vals)
-        for line in self:
-            if 'new_qty' in vals:
-                line.new_qty_last = line.new_qty
-        return res
-
-    def create(self, vals_list):
-        lines = super().create(vals_list)
-        for line in lines:
-            line.new_qty_last = line.new_qty or 0.0
-        return lines
+    
 
     @api.onchange('product_id', 'product_uom_qty')
     def _onchange_product_id_check_stock(self):
