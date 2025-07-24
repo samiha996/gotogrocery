@@ -54,7 +54,7 @@ class PurchaseOrderLine(models.Model):
                 line.package_price = line.product_packaging_id.package_price or 0.0
                 line._package_price_initialized = True
 
-            # 💡 Force recompute of quantities manually
+            # Force recompute of quantities manually
             line._compute_product_qty()
             line._update_price()
 
