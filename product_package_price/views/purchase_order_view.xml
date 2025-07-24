@@ -20,9 +20,9 @@
                 <field name="product_packaging_qty" string="Boxes"/>
             </xpath>
 
-            <!-- Insert new_qty before product_qty -->
+            <!-- Insert second_product_uom_qty before product_qty -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="before">
-                <field name="new_qty" string="Pieces"/>
+                <field name="second_product_uom_qty" string="Pieces"/>
             </xpath>
 
             <xpath expr="//field[@name='order_line']/tree//field[@name='product_qty']" position="replace">
