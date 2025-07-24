@@ -5,26 +5,24 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_packaging_qty']" position="replace">
-               
+                <!-- Do not re-add anything here to remove it -->
             </xpath>
-             
+             <!-- Move product_packaging_qty before product_qty -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
-                <field name="product_packaging_qty" string="Boxes" digits="[16, 4]" />
-
+                <field name="product_packaging_qty" string="Boxes"/>
             </xpath>
 
-    
+            <!-- Insert new_qty before product_qty -->
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="before">
-                <field name="new_qty" string="Pieces" />
+                <field name="second_product_uom_qty" string="Pieces"/>
             </xpath>
 
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="replace">
                 <field name="product_uom_qty" string="Total pieces"/>
             </xpath>
-            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+           <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
                 <field name="package_price"/>
             </xpath>
-           
            
         </field>
     </record>
