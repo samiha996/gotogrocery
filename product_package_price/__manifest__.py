@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': "Product Package Price",
-    'author': "Hassan Alwan",
+    'author': "Dow Group",
     'category': 'Package',
     'version': '1.0',
     'depends': ['product', 'purchase', 'sale'],
@@ -22,5 +22,6 @@
         'wizard/purchase_order_discount.xml',
     ],
 }
+
 
 
