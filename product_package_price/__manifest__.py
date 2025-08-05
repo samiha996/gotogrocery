@@ -7,6 +7,9 @@
     'depends': ['product', 'purchase', 'sale'],
     'data':[
         'security/ir.model.access.csv',
+        
+        'report/sale_order_report.xml',
+        
         'views/product_package.xml',
         'views/purchase_order_view.xml',
         'views/product_template.xml',
@@ -19,4 +22,5 @@
         'wizard/purchase_order_discount.xml',
     ],
 }
+
 
